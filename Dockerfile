@@ -32,6 +32,7 @@ ADD conf/cloud9.conf /etc/supervisor/conf.d/
 RUN mkdir /workspace
 VOLUME /workspace
 
+ENV CLOUD9_USER default
 RUN useradd -ms /bin/bash $CLOUD9_USER
 USER $CLOUD9_USER
 
