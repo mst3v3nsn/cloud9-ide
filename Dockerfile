@@ -5,6 +5,8 @@
 FROM kdelfour/supervisor-docker
 MAINTAINER Matthew Stevenson <mwsteven@odu.edu>
 
+USER $CLOUD9_USER
+
 # ------------------------------------------------------------------------------
 # Install base
 RUN apt-get update
