@@ -5,8 +5,6 @@
 FROM kdelfour/supervisor-docker
 MAINTAINER Matthew Stevenson <mwsteven@odu.edu>
 
-USER $CLOUD9_USER
-
 # ------------------------------------------------------------------------------
 # Install base
 RUN apt-get update
@@ -33,6 +31,9 @@ ADD conf/cloud9.conf /etc/supervisor/conf.d/
 # Add volumes
 RUN mkdir /workspace
 VOLUME /workspace
+
+RUN useradd -ms /bin/bash $CLOUD9_USER
+USER $CLOUD9_USER
 
 # ------------------------------------------------------------------------------
 # Clean up APT when done.
