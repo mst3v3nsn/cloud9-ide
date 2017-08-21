@@ -34,7 +34,6 @@ VOLUME /workspace
 
 ENV CLOUD9_USER default
 RUN useradd -ms /bin/bash $CLOUD9_USER
-USER $CLOUD9_USER
 
 # ------------------------------------------------------------------------------
 # Clean up APT when done.
