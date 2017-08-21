@@ -32,12 +32,11 @@ ADD conf/cloud9.conf /etc/supervisor/conf.d/
 RUN mkdir /workspace
 VOLUME /workspace
 
-ENV CLOUD9_USER default
-RUN useradd -ms /bin/bash $CLOUD9_USER
-
 # ------------------------------------------------------------------------------
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+COPY ./entrypoint.sh /app/entrypoint.sh
 
 # ------------------------------------------------------------------------------
 # Expose ports.
@@ -46,4 +45,7 @@ EXPOSE 3000
 
 # ------------------------------------------------------------------------------
 # Start supervisor, define default command.
+
+ENTRYPOINT ["/app/entrypoint.sh"]
+
 CMD ["supervisord", "-c", "/etc/supervisor/supervisord.conf"]
