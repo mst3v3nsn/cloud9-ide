@@ -38,6 +38,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY ./entrypoint.sh /app/entrypoint.sh
 RUN chmod o+rx /app/entrypoint.sh
+RUN /app/entrypoint.sh
 
 # ------------------------------------------------------------------------------
 # Expose ports.
@@ -46,7 +47,5 @@ EXPOSE 3000
 
 # ------------------------------------------------------------------------------
 # Start supervisor, define default command.
-
-ENTRYPOINT ["/app/entrypoint.sh"]
 
 CMD ["supervisord", "-c", "/etc/supervisor/supervisord.conf"]
