@@ -5,7 +5,9 @@
 FROM kdelfour/supervisor-docker
 MAINTAINER Matthew Stevenson <mwsteven@odu.edu>
 
-ENV CLOUD9_USER='' CLOUD9_UID='' CLOUD9_GID='' 
+ENV CLOUD9_USER
+ENV CLOUD9_UID
+ENV CLOUD9_GID
 
 # ------------------------------------------------------------------------------
 # Install base
