@@ -47,5 +47,4 @@ EXPOSE 3000
 
 # ------------------------------------------------------------------------------
 # Start supervisor, define default command.
-
-CMD ["supervisord", "-c", "/etc/supervisor/supervisord.conf"]
+ENTRYPOINT ["/app/entrypoint.sh"]
