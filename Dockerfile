@@ -5,10 +5,6 @@
 FROM kdelfour/supervisor-docker
 MAINTAINER Matthew Stevenson <mwsteven@odu.edu>
 
-ENV CLOUD9_USER
-ENV CLOUD9_UID
-ENV CLOUD9_GID
-
 # ------------------------------------------------------------------------------
 # Install base
 RUN apt-get update
@@ -39,13 +35,6 @@ VOLUME /workspace
 # ------------------------------------------------------------------------------
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-RUN groupadd --gid "${CLOUD9_GID}" "${CLOUD9_USER}" && \
-    useradd \
-      --uid ${CLOUD9_UID} \
-      --gid ${CLOUD9_GID} \
-      --shell /bin/bash \
-      ${CLOUD9_USER}
 
 COPY ./entrypoint.sh /app/entrypoint.sh
 RUN chmod u+x /app/entrypoint.sh
