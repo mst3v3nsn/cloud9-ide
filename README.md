@@ -16,7 +16,7 @@ Download automated build from public Docker Hub Registry: docker pull mstev0du/c
 
 Usage
 
-docker run -it -d -p 80:80 mstev0du/cloud9-ide
+<c>docker run -it -d -p 80:80 mstev0du/cloud9-ide</c>
 You can add a workspace as a volume directory with the argument -v /your-path/workspace/:/workspace/ like this :
 
 docker run -it -d -p 80:80 -v /your-path/workspace/:/workspace/ mstev0du/cloud9-ide
