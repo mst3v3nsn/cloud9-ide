@@ -36,7 +36,19 @@ docker run -it -d \
 -p 80:80 \
 mstev0du/cloud9-ide:latest
 ```
+NOTE: for this option to work docker-netshare-volume plugin must be installed and running on host machine.
+https://github.com/ContainX/docker-volume-netshare
 
+If installed correctly, run the plugin using with the command:
+```docker
+sudo service docker-netshare-volume start
+```
+For kubernetes deployments, specify:
+```docker
+nfs:
+  server: serverName
+  path: /path/on/server
+```
 ### To run the container normally with defaults
 
 <code> docker run -it -d --user=0:0 -p 80:80 mstev0du/cloud9-ide:latest </code>
