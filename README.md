@@ -21,34 +21,34 @@ update of NODEJS and Ubunutu:16.04
 ### Download the latest code from Github 
 https://github.com/mst3v3nsn/cloud9-ide
 #### Clone the repository 
-<code>git clone https://github.com/msteven101/cloud9-ide</code>
+<code>git clone https://github.com/mst3v3nsn/cloud9-ide</code>
 
 <code>cd cloud9-docker/</code>
 
 ### Docker command to start a container with NFS and uid/gid mapping 
-- replace "username" with the username for which the container is being created for and "uid/gid" repectively
+- replace "username" with the username for which the container is being created for and "uid/gid" respectively
 - specify path to nfs export for "/path/to/nfs/export/for/username" including the server FQDN or IP in the full path
-```docker
+<code>
 docker run -it -d \
 --name username-c9 \
 --user=uid:gid \
 --mount type=volume,volume-driver=nfs,source=/path/to/nfs/export/for/username,target=/workspace/username \ 
 -p 80:80 \
 mstev0du/cloud9-ide:latest
-```
+</code>
 NOTE: for this option to work docker-netshare-volume plugin must be installed and running on host machine.
 https://github.com/ContainX/docker-volume-netshare
 
 If installed correctly, run the plugin using with the command:
-```docker
+<code>
 sudo service docker-netshare-volume start
-```
+</code>
 For kubernetes deployments, specify:
-```docker
+<code>
 nfs:
   server: serverName
   path: /path/on/server
-```
+</code>
 ### To run the container normally with defaults
 
 <code> docker run -it -d --user=0:0 -p 80:80 mstev0du/cloud9-ide:latest </code>
